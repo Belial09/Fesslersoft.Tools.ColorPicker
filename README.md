@@ -1,0 +1,1 @@
+# Fesslersoft.Tools.ColorPicker
