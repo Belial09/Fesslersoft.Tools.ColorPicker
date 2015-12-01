@@ -1,0 +1,223 @@
+<!doctype html>
+<html ng-app="colorpickerapp">
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+        <script src="js/colorpickerapp.js"></script>
+        <script src="js/clipboard.min.js"></script>
+        <script src="js/angular-color-picker.js"></script>
+        <script src="js/tinycolor.js"></script>
+        <script src="js/conversions.js"></script>
+        <script src="js/tools.js"></script>
+    </head>
+
+    <body ng-controller="colorpickerController" ng-init="">
+        <!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+        <center>
+            <div class="main-container">
+                <div class="main wrapper clearfix">
+                    <script>
+                        var clipboard = new Clipboard('#clipboardButton');</script>
+                    <form class="form-horizontal">
+                        <fieldset>
+
+                            <h2>Colorpicker</h2><br/>
+                            <!-- Text input-->
+                            <color-picker ng-model="color"></color-picker>
+
+                            <div class="control-group">
+
+                                <br/><br/>
+
+                                <div id="group_colors" class="row">
+                                    <div class="col-md-6 col-lg-6 col-xs-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">R</span>
+                                            <input readonly id="colR" type="text" ng-model="colR" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#colR"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">G</span>
+                                            <input readonly id="colG" type="text" ng-model="colG" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#colG"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">B</span>
+                                            <input readonly type="text" id="colB" ng-model="colB" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#colB"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-xs-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">C</span>
+                                            <input readonly type="text" id="colC" ng-model="colC" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#colC"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">M</span>
+                                            <input readonly type="text" id="colM" ng-model="colM" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#colM"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Y</span>
+                                            <input readonly type="text" id="colY" ng-model="colY" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#colY"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">K</span>
+                                            <input readonly type="text" id="colK" ng-model="colK" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#colK"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/><br/>
+                                <div id="group_colors" class="row">
+                                    <div class="col-md-6 col-lg-6 col-xs-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">H</span>
+                                            <input id="colHSLH" readonly type="text" ng-model="colHSLH" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#colHSLH"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">S</span>
+                                            <input readonly id="colHSLS" type="text" ng-model="colHSLS" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#colHSLS"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">L</span>
+                                            <input readonly id="colHSLL" type="text" ng-model="colHSLL" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#colHSLL"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-xs-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">H</span>
+                                            <input readonly id="colHSVH" type="text" ng-model="colHSVH" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#colHSVH"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">S</span>
+                                            <input readonly id="colHSVS" type="text" ng-model="colHSVS" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#colHSVS"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">V</span>
+                                            <input readonly type="text" id="colHSVV" ng-model="colHSVV" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#colHSVV"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/><br/>
+                                <div id="main" class="row no-pad">
+                                    <div class="col-md-2 col-lg-2 col-xs-2">
+                                        <input readonly  ng-style="{'background-color':color}" type="text" class="form-control">
+                                        <input readonly  ng-style="{'background-color':color}" type="text" class="form-control">
+                                        <input readonly  ng-style="{'background-color':webSafeHexColor}" type="text" class="form-control">
+                                        <input readonly  ng-style="{'background-color':color}" type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-10 col-lg-10 col-xs-10">
+                                        <div class="input-group">
+                                            <span id="bigaddon" class="input-group-addon">HEX</span>
+                                            <input id="HexColor"  type="text" class="form-control" ng-model="color" ng-init="color = '#000000'" aria-label="Amount (to the nearest dollar)">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#HexColor"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span id="bigaddon" class="input-group-addon">HEX8</span>
+                                            <input id="HexColor8"   readonly type="text" ng-model="hex8Color" class="form-control" >
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton"  data-clipboard-target="#HexColor8"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span id="bigaddon" class="input-group-addon">WEBSAFE</span>
+                                            <input id="websafeCol" readonly type="text" class="form-control" ng-model="webSafeHexColor" aria-label="Amount (to the nearest dollar)">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#websafeCol"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span id="bigaddon" class="input-group-addon">DECIMAL</span>
+                                            <input id="decColor" readonly type="text" ng-model="decColor" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" id="clipboardButton" data-clipboard-target="#decColor"><i class="fa fa-clipboard"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br/><br/>
+
+                            </form>
+
+                        </div>
+                </div>
+
+
+                <div class="footer-container"  >
+                    <h3 >About</h3>
+                    <p>This is a little Colorpicker Generator using only HTML and Client-Side Javascript. No user data will be stored. Feel free to use this little Tool. Also take a look at the awesome resources used.</p>
+                    <h3>Resources</h3>
+                    <h4>Editors / Tools</h4>
+                    <a href="http://brackets.io/" target="_blank">Brackets</a>, <a href="https://filezilla-project.org/" target="_blank">FileZilla</a>
+                    <h4>Frameworks</h4>
+                    <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>, <a href="https://angularjs.org/" target="_blank">AngularJS</a>
+                    <h4>Fonts</h4>
+                    <a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a>
+                    <h4>Plugins/Libs</h4>
+                    <a href="https://github.com/myplanet/angular-color-picker" target="_blank">Myplanet's angular-color-picker</a>,<a href="https://github.com/MoOx/color-convert" target="_blank">Heather Arthur's color-convert</a>, <a href="https://github.com/bgrins/TinyColor" target="_blank">Brian Grinstead's TinyColor</a>, <a href="https://zenorocha.github.io/clipboard.js/" target="_blank">Zeno Rocha's clipboard.js</a>, <a href="https://github.com/shumpei/brackets-autoindent-extension" target="_blank">Shumpei's brackets-autoindent-extension</a>
+                    <h3>Sourcecode</h3>
+                    <p>As it is our philosophy to share and improve code we write, you can access the full sourcecode in our <a href="https://github.com/Belial09/Fesslersoft.Tools.ColorPicker" target="_blank">Github repository</a>.<br/>
+                        Feel free to send us suggestions, fixes and so on. We always try to improve our Web Development skills as we are mainly Windows desktop developers.</p>
+                </div>
+                <br/><br/><br/>
+                </center>
+
+            </body>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/pagestyle.css">
+
+        </html>
