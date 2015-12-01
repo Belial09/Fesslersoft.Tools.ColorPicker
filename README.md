@@ -15,6 +15,8 @@ This is a little Colorpicker using only HTML and Client-Side Javascript. No user
     - [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 
   - **Plugins/Libs**
-    - [atesgoral's angular-color-picker](https://github.com/myplanet/angular-color-picker)
+    - [Myplanet's angular-color-picker](https://github.com/myplanet/angular-color-picker)
+	- [Heather Arthur's color-convert](https://github.com/MoOx/color-convert)
+	- [Brian Grinstead's TinyColor](https://github.com/bgrins/TinyColor)
     - [Zeno Rocha's clipboard.js](https://zenorocha.github.io/clipboard.js/)
     - [Shumpei's brackets-autoindent-extension](https://github.com/shumpei/brackets-autoindent-extension)
